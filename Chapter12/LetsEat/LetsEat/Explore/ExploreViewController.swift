@@ -2,7 +2,7 @@
 //  ExploreViewController.swift
 //  LetsEat
 //
-//  Created by admin on 15/10/2019.
+//  Created by admin on 28/11/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -27,11 +27,8 @@ class ExploreViewController: UIViewController, UICollectionViewDataSource, UICol
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         // Do any additional setup after loading the view.
     }

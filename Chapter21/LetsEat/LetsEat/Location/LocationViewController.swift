@@ -2,17 +2,17 @@
 //  LocationViewController.swift
 //  LetsEat
 //
-//  Created by admin on 21/10/2019.
+//  Created by admin on 03/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
 import UIKit
 
 class LocationViewController: UIViewController {
-    
+
     @IBOutlet weak var tableView: UITableView!
     let manager = LocationDataManager()
-    var selectedCity:LocationItem?
+    var selectedCity: LocationItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,24 +26,20 @@ class LocationViewController: UIViewController {
                 if indexPath.row == data.position {
                     cell.accessoryType = .checkmark
                 }
-                else {
-                    cell.accessoryType = .none
-                }
+                else { cell.accessoryType = .none }
             }
-            else {
-                cell.accessoryType = .none
-            }
+        }
+        else {
+            cell.accessoryType = .none
         }
     }
 }
 
 // MARK: Private Extension
 private extension LocationViewController {
-    
     func initialize() {
         manager.fetch()
     }
-    
 }
 
 // MARK: UITableViewDataSource
@@ -67,7 +63,7 @@ extension LocationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
-            selectedCity = manager.locationItem(at:indexPath)
+            selectedCity = manager.locationItem(at: indexPath)
             tableView.reloadData()
         }
     }

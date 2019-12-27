@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s7z-iW-Bsm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s7z-iW-Bsm">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,8 +64,8 @@
                                             <constraint firstAttribute="trailing" secondItem="ElC-Mf-BBR" secondAttribute="trailing" id="kvs-m5-jNJ"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imgThumb" destination="ElC-Mf-BBR" id="6fY-Lh-3lh"/>
-                                            <outlet property="lblName" destination="vM6-ok-5gG" id="obB-l0-Wvg"/>
+                                            <outlet property="imgThumb" destination="ElC-Mf-BBR" id="YIj-Vo-yeD"/>
+                                            <outlet property="lblName" destination="vM6-ok-5gG" id="v4Y-o9-Yjm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -87,25 +87,25 @@
                     <navigationItem key="navigationItem" id="vgh-Nx-oKV">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AiM-gc-yKu">
                             <connections>
-                                <segue destination="e45-Oy-Gqz" kind="unwind" unwindAction="unwindReviewCancelWithSegue:" id="n5l-4L-ef1"/>
+                                <segue destination="exv-hr-XWZ" kind="unwind" unwindAction="unwindReviewCancelWithSegue:" id="umv-GI-NPs"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="save" id="LqQ-au-GU8"/>
                             <barButtonItem image="icon-photo" id="kkC-ZD-maP">
                                 <connections>
-                                    <action selector="onPhotoTapped:" destination="VI2-nK-ly1" id="Tq1-D5-ZsR"/>
+                                    <action selector="onPhotoTapped:" destination="VI2-nK-ly1" id="qLs-Hb-mNZ"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="RS5-5J-Wgc" id="Tat-WK-XLU"/>
-                        <outlet property="imgExample" destination="0N4-0n-ut3" id="6PP-en-Jtu"/>
+                        <outlet property="collectionView" destination="RS5-5J-Wgc" id="orp-yV-Wn3"/>
+                        <outlet property="imgExample" destination="0N4-0n-ut3" id="Kxh-dJ-UPl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwv-AM-zzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="e45-Oy-Gqz" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="exv-hr-XWZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4924" y="-152"/>
         </scene>

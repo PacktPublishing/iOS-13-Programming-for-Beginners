@@ -2,7 +2,7 @@
 //  MapDataManager.swift
 //  LetsEat
 //
-//  Created by admin on 22/10/2019.
+//  Created by admin on 03/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -13,11 +13,11 @@ class MapDataManager: DataManager {
     
     fileprivate var items: [RestaurantItem] = []
     
-    var annotations:[RestaurantItem] {
+    var annotations: [RestaurantItem] {
         return items
     }
     
-    func fetch(completion:(_ annotations: [RestaurantItem]) -> ()){
+    func fetch(completion: (_ annotations: [RestaurantItem]) -> ()) {
         let manager = RestaurantDataManager()
         manager.fetch(by: "Boston", completionHandler: { (items) in
             self.items = items
@@ -30,8 +30,7 @@ class MapDataManager: DataManager {
             return MKCoordinateRegion()
         }
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
-        return MKCoordinateRegion(center: item.coordinate, span:span)
+        return MKCoordinateRegion(center: item.coordinate, span: span)
     }
     
-
 }

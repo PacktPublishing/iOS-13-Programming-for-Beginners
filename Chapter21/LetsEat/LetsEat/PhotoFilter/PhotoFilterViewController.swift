@@ -2,7 +2,7 @@
 //  PhotoFilterViewController.swift
 //  LetsEat
 //
-//  Created by admin on 27/10/2019.
+//  Created by admin on 04/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -11,7 +11,6 @@ import AVFoundation
 import MobileCoreServices
 
 class PhotoFilterViewController: UIViewController {
-    
     var image: UIImage?
     var thumbnail: UIImage?
     let manager = FilterManager()
@@ -27,7 +26,7 @@ class PhotoFilterViewController: UIViewController {
     }
 }
 
-// MARK: - Private Extension
+//MARK: - Private Extension
 private extension PhotoFilterViewController {
     
     func initialize() {
@@ -37,8 +36,7 @@ private extension PhotoFilterViewController {
     }
     
     func requestAccess() {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { granted in
-            if granted {}
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { granted in if granted {}
         }
     }
     
@@ -54,7 +52,7 @@ private extension PhotoFilterViewController {
         collectionView?.dataSource = self
     }
     
-    func checkSource() {
+    func checkSource(){
         let cameraMediaType = AVMediaType.video
         let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
         switch cameraAuthorizationStatus {
@@ -74,7 +72,7 @@ private extension PhotoFilterViewController {
     
     func showApplyFilter() {
         manager.fetch { (items) in
-            if data.count > 0 { data.removeAll()}
+            if data.count > 0 { data.removeAll() }
             data = items
             if let image = self.image {
                 imgExample.image = image
@@ -87,7 +85,7 @@ private extension PhotoFilterViewController {
         return data[indexPath.item]
     }
     
-    @IBAction func onPhotoTapped(_ sender: Any) {
+    @IBAction func onPhotoTapped(_ sender:Any) {
         checkSource()
     }
 }
@@ -138,9 +136,6 @@ extension PhotoFilterViewController: UIImagePickerControllerDelegate, UINavigati
         imagePicker.delegate = self
         #if targetEnvironment(simulator)
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        #else
-        imagePicker.sourceType = UIImagePickerController.SourceType.camera
-        imagePicker.showsCameraControls = true
         #endif
         imagePicker.mediaTypes = [kUTTypeImage as String]
         imagePicker.allowsEditing = true
@@ -149,9 +144,9 @@ extension PhotoFilterViewController: UIImagePickerControllerDelegate, UINavigati
     
     func generate(image: UIImage, ratio: CGFloat) -> UIImage {
         let size = image.size
-        var croppedSize: CGSize?
-        var offsetX: CGFloat = 0.0
-        var offsetY: CGFloat = 0.0
+        var croppedSize:CGSize?
+        var offsetX:CGFloat = 0.0
+        var offsetY:CGFloat = 0.0
         if size.width > size.height {
             offsetX = (size.height - size.width) / 2
             croppedSize = CGSize(width: size.height, height: size.height)
@@ -178,7 +173,7 @@ extension PhotoFilterViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-extension PhotoFilterViewController: ImageFiltering, ImageFilteringDelegate {
+extension PhotoFilterViewController: ImageFiltering,ImageFilteringDelegate {
     func filterSelected(item: FilterItem) {
         let filteredImg = image
         if let img = filteredImg {

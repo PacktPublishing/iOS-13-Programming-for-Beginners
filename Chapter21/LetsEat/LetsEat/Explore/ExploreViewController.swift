@@ -2,18 +2,18 @@
 //  ExploreViewController.swift
 //  LetsEat
 //
-//  Created by admin on 15/10/2019.
+//  Created by admin on 28/11/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
 import UIKit
 
 class ExploreViewController: UIViewController,  UICollectionViewDelegate {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     let manager = ExploreDataManager()
-    var selectedCity: LocationItem?
-    var headerView: ExploreHeaderView!
+    var selectedCity:LocationItem?
+    var headerView:ExploreHeaderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ExploreViewController: UIViewController,  UICollectionViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        switch segue.identifier {
+        switch  segue.identifier! {
         case Segue.locationList.rawValue:
             showLocationList(segue: segue)
         case Segue.restaurantList.rawValue:
@@ -58,7 +58,7 @@ private extension ExploreViewController {
         viewController.selectedCity = city
     }
     
-    func showRestaurantListing(segue:UIStoryboardSegue){
+    func showRestaurantListing(segue: UIStoryboardSegue) {
         if let viewController = segue.destination as? RestaurantListViewController, let city = selectedCity, let index = collectionView.indexPathsForSelectedItems?.first {
             viewController.selectedType = manager.explore(at: index).name
             viewController.selectedCity = city
@@ -66,7 +66,7 @@ private extension ExploreViewController {
     }
     
     func showAlert() {
-        let alertController = UIAlertController(title: "Location Needed", message: "Please select a location.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Location Needed", message: "Please select a location", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
@@ -88,7 +88,7 @@ private extension ExploreViewController {
 
 // MARK: UICollectionViewDataSource
 extension ExploreViewController: UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
         headerView = header as? ExploreHeaderView
@@ -106,5 +106,4 @@ extension ExploreViewController: UICollectionViewDataSource {
         cell.imgExplore.image = UIImage(named: item.image)
         return cell
     }
-    
 }

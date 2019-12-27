@@ -2,14 +2,15 @@
 //  LocationDataManager.swift
 //  LetsEat
 //
-//  Created by admin on 21/10/2019.
+//  Created by admin on 03/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
 import Foundation
 
 class LocationDataManager {
-    private var locations:[LocationItem] = []
+    
+    private var locations: [LocationItem] = []
     
     func fetch() {
         for location in loadData() {
@@ -21,7 +22,7 @@ class LocationDataManager {
         return locations.count
     }
     
-    func locationItem(at index:IndexPath) -> LocationItem {
+    func locationItem(at index: IndexPath) -> LocationItem {
         return locations[index.item]
     }
     
@@ -32,7 +33,7 @@ class LocationDataManager {
         return items as! [[String:AnyObject]]
     }
     
-    func findLocation (by name: String) -> (isFound:Bool, position:Int) {
+    func findLocation (by name: String) -> (isFound: Bool, position: Int) {
         guard let index = locations.firstIndex(where: { $0.city == name}) else {
             return (isFound: false, position: 0)
         }

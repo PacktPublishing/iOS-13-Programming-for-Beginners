@@ -2,7 +2,7 @@
 //  RestaurantDetailViewController.swift
 //  LetsEat
 //
-//  Created by admin on 23/10/2019.
+//  Created by admin on 03/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import MapKit
 class RestaurantDetailViewController: UITableViewController {
     
     // Nav Bar
-    @IBOutlet weak var btnHeart: UIBarButtonItem!
+    @IBOutlet weak var btnHeart:UIBarButtonItem!
     
     // Cell One
     @IBOutlet weak var lblName: UILabel!
@@ -32,8 +32,6 @@ class RestaurantDetailViewController: UITableViewController {
     // Cell Nine
     @IBOutlet weak var imgMap: UIImageView!
     
-    
-    
     var selectedRestaurant: RestaurantItem?
 
     override func viewDidLoad() {
@@ -44,7 +42,9 @@ class RestaurantDetailViewController: UITableViewController {
 
 private extension RestaurantDetailViewController {
     
-    @IBAction func unwindReviewCancel(segue: UIStoryboardSegue) {}
+    @IBAction func unwindReviewCancel(segue:UIStoryboardSegue) {
+        
+    }
     
     func createRating() {
         ratingView.rating = 3.5
@@ -74,13 +74,12 @@ private extension RestaurantDetailViewController {
     }
     
     func createMap() {
-        guard let annotation = selectedRestaurant, let long = annotation.long, let lat = annotation.lat else {return}
+        guard let annotation = selectedRestaurant, let long = annotation.long, let lat = annotation.lat else { return }
         let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
         takeSnapShot(with: location)
     }
     
-    func takeSnapShot(with location: CLLocationCoordinate2D){
-        
+    func takeSnapShot(with location: CLLocationCoordinate2D) {
         let mapSnapshotOptions = MKMapSnapshotter.Options()
         var loc = location
         let polyline = MKPolyline(coordinates: &loc, count: 1)
@@ -100,8 +99,8 @@ private extension RestaurantDetailViewController {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
             
-            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            pinView.image = UIImage(named: "custom-annotation")
+            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier )
+            pinView.image = UIImage(named: "custom-annotation")!
             let pinImage = pinView.image
             var point = snapshot.point(for: location)
             
@@ -114,13 +113,13 @@ private extension RestaurantDetailViewController {
                 point.y += pinCenterOffset.y
                 pinImage?.draw(at: point)
             }
-            if let image = UIGraphicsGetImageFromCurrentImageContext(){
+            if let image = UIGraphicsGetImageFromCurrentImageContext() {
                 UIGraphicsEndImageContext()
                 DispatchQueue.main.async {
                     self.imgMap.image = image
                 }
             }
         }
-        
-    }
+            
+        }
 }

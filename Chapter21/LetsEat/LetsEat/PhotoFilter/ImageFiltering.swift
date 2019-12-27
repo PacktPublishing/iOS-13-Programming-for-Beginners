@@ -2,7 +2,7 @@
 //  ImageFiltering.swift
 //  LetsEat
 //
-//  Created by admin on 27/10/2019.
+//  Created by admin on 04/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -10,15 +10,15 @@ import UIKit
 import CoreImage
 
 protocol ImageFiltering {
-    func apply(filter: String, originalImage: UIImage) -> UIImage
+    func apply(filter:String, originalImage:UIImage) -> UIImage
 }
 
-protocol ImageFilteringDelegate: class {
+protocol ImageFilteringDelegate:class {
     func filterSelected(item:FilterItem)
 }
 
 extension ImageFiltering {
-    func apply(filter: String, originalImage: UIImage) -> UIImage {
+    func apply(filter:String, originalImage:UIImage) -> UIImage {
         let initialCIImage = CIImage(image: originalImage, options: nil)
         let originalOrientation = originalImage.imageOrientation
         guard let ciFilter = CIFilter(name: filter) else {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hS7-gB-9nH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hS7-gB-9nH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -146,20 +146,20 @@
                     <navigationItem key="navigationItem" id="HhK-Tr-uQT">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DoS-wK-OFu">
                             <connections>
-                                <segue destination="Wbq-hq-Or1" kind="unwind" unwindAction="unwindReviewCancelWithSegue:" id="B0H-5I-KcY"/>
+                                <segue destination="Wbq-hq-Or1" kind="unwind" unwindAction="unwindReviewCancelWithSegue:" id="XHP-13-2M4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="yDv-S1-VFB">
                             <connections>
-                                <action selector="onSaveTapped:" destination="FMe-3H-aSV" id="G19-cZ-hFq"/>
+                                <action selector="onSaveTapped:" destination="FMe-3H-aSV" id="vg6-iw-naG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ratingView" destination="Jgv-x1-Dm8" id="drh-NT-ZCq"/>
-                        <outlet property="tfName" destination="uwv-vD-pti" id="8WW-Tc-BQC"/>
-                        <outlet property="tfTitle" destination="jdr-kq-Djw" id="swm-b4-IfP"/>
-                        <outlet property="tvReview" destination="mfP-Ls-LpI" id="GR8-iu-cIn"/>
+                        <outlet property="ratingView" destination="Jgv-x1-Dm8" id="3nf-zT-rlu"/>
+                        <outlet property="tfName" destination="uwv-vD-pti" id="ZPF-VU-Us9"/>
+                        <outlet property="tfTitle" destination="jdr-kq-Djw" id="6JB-Md-Vt3"/>
+                        <outlet property="tvReview" destination="mfP-Ls-LpI" id="MDx-jH-311"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoT-q7-XLM" userLabel="First Responder" sceneMemberID="firstResponder"/>

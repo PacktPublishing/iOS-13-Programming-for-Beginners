@@ -2,7 +2,7 @@
 //  MapViewController.swift
 //  LetsEat
 //
-//  Created by admin on 22/10/2019.
+//  Created by admin on 03/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -12,7 +12,9 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    
     let manager = MapDataManager()
+    
     var selectedRestaurant: RestaurantItem?
     
     override func viewDidLoad() {
@@ -20,45 +22,44 @@ class MapViewController: UIViewController {
         initialize()
     }
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Segue.showDetail.rawValue:
             showRestaurantDetail(segue: segue)
         default:
             print("Segue not added")
         }
-     }
+    }
 }
-
 
 // MARK: Private Extension
 private extension MapViewController {
-    
+   
     func initialize() {
         mapView.delegate = self
-        manager.fetch { (annotations) in
-            addMap(annotations)
+        manager.fetch { (annotations) in addMap(annotations)
         }
     }
     
-    func addMap(_ annotations:[RestaurantItem]) {
+    func addMap(_ annotations: [RestaurantItem]) {
         mapView.setRegion(manager.currentRegion(latDelta: 0.5, longDelta: 0.5), animated: true)
         mapView.addAnnotations(manager.annotations)
     }
     
-    func showRestaurantDetail(segue:UIStoryboardSegue){
+    func showRestaurantDetail(segue: UIStoryboardSegue) {
         if let viewController = segue.destination as? RestaurantDetailViewController, let restaurant = selectedRestaurant {
             viewController.selectedRestaurant = restaurant
         }
     }
-
 }
+
 // MARK: MKMapViewDelegate
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = mapView.selectedAnnotations.first else { return }
         selectedRestaurant = annotation as? RestaurantItem
+        
         self.performSegue(withIdentifier: Segue.showDetail.rawValue, sender: self)
     }
     
@@ -80,5 +81,4 @@ extension MapViewController: MKMapViewDelegate {
         }
         return annotationView
     }
-    
 }

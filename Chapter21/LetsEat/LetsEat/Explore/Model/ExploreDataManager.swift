@@ -2,7 +2,7 @@
 //  ExploreDataManager.swift
 //  LetsEat
 //
-//  Created by admin on 19/10/2019.
+//  Created by admin on 02/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ class ExploreDataManager: DataManager {
     fileprivate var items:[ExploreItem] = []
     
     func fetch() {
-        for data in load(file: "ExploreData"){
+        for data in load(file: "ExploreData") {
             items.append(ExploreItem(dict: data))
         }
     }

@@ -2,7 +2,7 @@
 //  CoreDataManager.swift
 //  LetsEat
 //
-//  Created by admin on 28/10/2019.
+//  Created by admin on 05/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -11,20 +11,20 @@ import CoreData
 
 class CoreDataManager: NSObject {
     
-    let container: NSPersistentContainer
+    let container:NSPersistentContainer
     
     override init() {
         container = NSPersistentContainer(name: "LetsEatModel")
-        container.loadPersistentStores { (storeDesc, error) in
+        container.loadPersistentStores { (storeDesc, error ) in
             guard error == nil else {
-                print(error?.localizedDescription   as Any)
+                print(error?.localizedDescription as Any)
                 return
             }
         }
         super.init()
     }
     
-    func addReview(_ item: ReviewItem) {
+    func addReview(_ item:ReviewItem) {
         let review = Review(context: container.viewContext)
         review.name = item.name
         review.title = item.title
@@ -40,7 +40,7 @@ class CoreDataManager: NSObject {
         }
     }
     
-    func addPhoto(_ item: RestaurantPhotoItem) {
+    func addPhoto(_ item:RestaurantPhotoItem) {
         let photo = RestaurantPhoto(context: container.viewContext)
         photo.date = Date()
         photo.photo = item.photoData as Data
@@ -53,11 +53,11 @@ class CoreDataManager: NSObject {
         }
     }
     
-    func fetchReviews(by identifier: Int) -> [ReviewItem] {
+    func fetchReviews(by identifier:Int) -> [ReviewItem] {
         let moc = container.viewContext
         let request:NSFetchRequest<Review> = Review.fetchRequest()
         let predicate = NSPredicate(format: "restaurantID = %i", Int32(identifier))
-        var items: [ReviewItem] = []
+        var items:[ReviewItem] = []
         request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         request.predicate = predicate
         do {
@@ -70,11 +70,11 @@ class CoreDataManager: NSObject {
         }
     }
     
-    func fetchPhotos(by identifier: Int) -> [RestaurantPhotoItem] {
+    func fetchPhotos(by identifier:Int) -> [RestaurantPhotoItem] {
         let moc = container.viewContext
         let request:NSFetchRequest<RestaurantPhoto> = RestaurantPhoto.fetchRequest()
         let predicate = NSPredicate(format: "restaurantID = %i", Int32(identifier))
-        var items: [RestaurantPhotoItem] = []
+        var items:[RestaurantPhotoItem] = []
         request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         request.predicate = predicate
         do {

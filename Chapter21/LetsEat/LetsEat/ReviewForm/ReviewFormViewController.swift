@@ -2,7 +2,7 @@
 //  ReviewFormViewController.swift
 //  LetsEat
 //
-//  Created by admin on 27/10/2019.
+//  Created by admin on 04/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -15,10 +15,6 @@ class ReviewFormViewController: UITableViewController {
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var tvReview: UITextView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @IBAction func onSaveTapped(_ sender: Any) {
         print(ratingView.rating)
         print(tfTitle.text as Any)
@@ -27,4 +23,8 @@ class ReviewFormViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
 }

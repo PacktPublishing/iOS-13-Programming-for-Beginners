@@ -2,7 +2,7 @@
 //  ReviewDataManager.swift
 //  LetsEat
 //
-//  Created by admin on 28/10/2019.
+//  Created by admin on 05/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -10,11 +10,11 @@ import UIKit
 
 class ReviewDataManager: NSObject {
     
-    private var reviewItems: [ReviewItem] = []
-    private var photoItems: [RestaurantPhotoItem] = []
+    private var reviewItems:[ReviewItem] = []
+    private var photoItems:[RestaurantPhotoItem] = []
     let manager = CoreDataManager()
     
-    func fetchReview(by restaurantID: Int) {
+    func fetchReview(by restaurantID:Int) {
         if reviewItems.count > 0 {
             reviewItems.removeAll()
         }
@@ -23,7 +23,7 @@ class ReviewDataManager: NSObject {
         }
     }
     
-    func fetchPhoto(by restaurantID: Int) {
+    func fetchPhoto(by restaurantID:Int) {
         if photoItems.count > 0 {
             photoItems.removeAll()
         }
@@ -40,13 +40,12 @@ class ReviewDataManager: NSObject {
         return photoItems.count
     }
     
-    func reviewItem(at index: IndexPath) -> ReviewItem {
+    func reviewItem(at index:IndexPath) -> ReviewItem {
         return reviewItems[index.item]
     }
     
-    func photoItem(at index: IndexPath) -> RestaurantPhotoItem {
+    func photoItem(at index:IndexPath) -> RestaurantPhotoItem {
         return photoItems[index.item]
     }
-
 
 }

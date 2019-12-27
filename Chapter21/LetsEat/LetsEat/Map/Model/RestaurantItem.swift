@@ -2,7 +2,7 @@
 //  RestaurantItem.swift
 //  LetsEat
 //
-//  Created by admin on 22/10/2019.
+//  Created by admin on 03/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -34,16 +34,20 @@ class RestaurantItem: NSObject, MKAnnotation, Decodable {
     var title: String? {
         return name
     }
-    
+
     var subtitle: String? {
         if cuisines.isEmpty { return "" }
         else if cuisines.count == 1 { return cuisines.first }
-        else { return cuisines.joined(separator: ", ") }
+        else { return cuisines.joined(separator: ", ")}
     }
-
+    
     var coordinate: CLLocationCoordinate2D {
-        guard let lat = lat, let long = long else {
-            return CLLocationCoordinate2D() }
+        guard  let lat = lat, let long = long else {
+            return CLLocationCoordinate2D()
+        }
         return CLLocationCoordinate2D(latitude: lat, longitude: long)
     }
+
 }
+
+

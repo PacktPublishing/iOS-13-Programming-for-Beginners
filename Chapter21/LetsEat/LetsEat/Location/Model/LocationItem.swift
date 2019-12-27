@@ -2,7 +2,7 @@
 //  LocationItem.swift
 //  LetsEat
 //
-//  Created by admin on 24/10/2019.
+//  Created by admin on 04/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ struct LocationItem {
 }
 
 extension LocationItem {
-    init(dict: [String:AnyObject]){
+    init(dict: [String:AnyObject]) {
         self.state = dict["state"] as? String
         self.city = dict["city"] as? String
     }

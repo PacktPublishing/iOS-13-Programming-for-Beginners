@@ -2,20 +2,19 @@
 //  NoDataView.swift
 //  LetsEat
 //
-//  Created by admin on 24/10/2019.
+//  Created by admin on 04/12/2019.
 //  Copyright © 2019 MyName. All rights reserved.
 //
 
 import UIKit
 
 class NoDataView: UIView {
-    
     var view: UIView!
     @IBOutlet var lblTitle: UILabel!
     @IBOutlet var lblDesc: UILabel!
     
     override init(frame: CGRect) {
-        super.init(frame:frame)
+        super.init(frame: frame)
         setupView()
     }
     
@@ -37,12 +36,12 @@ class NoDataView: UIView {
         addSubview(view)
     }
     
-    func set(title: String){
+    func set(title: String) {
         lblTitle.text = title
     }
     
-    func set(desc: String){
+    func set(desc: String) {
         lblDesc.text = desc
     }
-
+    
 }
